@@ -2,6 +2,8 @@
 give task csv [title, task, ratio] ratio(1-9, 0 will 0 price) and you get [title, task, price]
 **This will RANDOM price! And need for such task!**
 
+Install: `npm i -g taskpricer`
+
 ## how use
 
 `taskpricer <filename> <totalprice>`
