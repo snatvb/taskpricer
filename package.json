@@ -11,7 +11,8 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"push": "git push origin $(git describe $(git rev-list --tags --max-count=1)) && git push --follow-tags"
 	},
 	"repository": {
 		"type": "git",
