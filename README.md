@@ -1,12 +1,12 @@
 # taskpricer
-give task csv [title, task, ratio] ratio(1-9, 0 will 0 price) and you get [title, task, price]
+give task csv [title, task, ratio] ratio(1-9, 0 will 0 price) and you get [title, task, price]  
 **This will RANDOM price! And need for such task!**
 
-Install: `npm i -g taskpricer`
+Install: `npm i -g taskpricer`  
 
 ## how use
 
-`taskpricer <filename> <totalprice>`
+`taskpricer <filename> <totalprice>`  
 After, you will get "result.csv". "filename" should be without extention.
 
 example:
