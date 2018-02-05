@@ -24,5 +24,5 @@ Will be file "result.csv":
 | title                | Task          | Price |
 | -------------------- | ------------- | ----- |
 | I did something      | TASK_NUMBER_1 | 12000 |
-| I did more something | TASK_NUMBER_2 | 46000 |
-| I did something more | TASK_NUMBER_3 | 34000 |
+| I did more something | TASK_NUMBER_2 | 45000 |
+| I did something more | TASK_NUMBER_3 | 33000 |
