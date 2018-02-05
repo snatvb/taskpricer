@@ -1,6 +1,6 @@
 {
 	"name": "taskpricer",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "give task csv [title, task, ratio] ratio(1-9, 0 will 0 price) and u get [title, task, price]",
 	"main": "index.js",
 	"bin": {
