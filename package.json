@@ -1,0 +1,18 @@
+{
+  "name": "taskpricer",
+  "version": "1.0.0",
+  "description": "give task csv [title, task, ratio] ratio(1-9, 0 will 0 price) and u get [title, task, price",
+  "main": "index.js",
+  "bin": {
+    "taskpricer": "./index.js"
+  },
+  "dependencies": {
+    "csv": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "snatvb",
+  "license": "ISC"
+}
