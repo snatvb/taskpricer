@@ -52,29 +52,9 @@ function calculate(taskList) {
   if(taskList.length < 1) {
     return;
   }
-  const priceToTask = config.totalPrice / taskList.length;
-  const middleRatioTasks = utils.middleNumber(taskList, task => task.ratio);
-  const maxPrice = priceToTask / middleRatioTasks;
-  const minimalPrice = maxPrice * .9;
   const totalPrice = config.totalPrice;
-//  console.log({ maxPrice, minimalPrice, m: utils.middleNumber(tasks, task => task.ratio) });
 
-  let {tasks, total, residue} = distributionMoney(taskList, {minimalPrice, maxPrice, priceToTask});
-
-  if(residue !== 0) {
-    const toUp = tasks.filter((task) => task.ratio >= middleRatioTasks);
-    const toTask = Math.floor(residue / toUp.length);
-    toUp.forEach(task => task.price += toTask);
-  }
-
-  total = 0;
-  tasks.forEach(task => total += task.price);
-  if(total != totalPrice) {
-    tasks[utils.randomInteger(0, tasks.length-1)].price += totalPrice - total;
-  }
-  total = 0;
-  tasks.forEach(task => total += task.price);
-  return tasks;
+  return distributionMoney(taskList, totalPrice);
 }
 
 /**
@@ -88,24 +68,23 @@ function save(tasks) {
   console.log('Well done!');
 }
 
-function distributionMoney(tasks, {minimalPrice, maxPrice, priceToTask}) {
+function distributionMoney(tasks, totalPrice) {
   let prices = [];
   let total = 0;
   let residue = 0;
+  const ratioCount = tasks.reduce((ratios, task) => task.ratio + ratios, 0)
+  const pricePerRatio = totalPrice / ratioCount
   tasks.forEach((task) => {
     task = task.clone();
-    const factor = config.factors[ task.ratio ];
-    let bias = residue * .9;
-    if(bias > minimalPrice * factor) {
-      bias = 0;
-    }
-    let price = utils.randomInteger(minimalPrice * factor, maxPrice * factor) + bias;
-    price = Math.round(price);
-    residue += priceToTask - price;
-    //    console.log(price, residue);
-    task.price = price;
+    const price = pricePerRatio * task.ratio;
+    const priceRand = Math.round(utils.randomInteger(price * 0.9, price + residue));
+    residue = priceRand - price;
+    task.price = priceRand;
     prices.push(task);
     total += price;
   });
-  return {tasks: prices, total, residue};
+  if (total !== totalPrice) {
+    console.warn('End total price in not compare with you:', total)
+  }
+  return prices;
 }

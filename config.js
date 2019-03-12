@@ -10,7 +10,7 @@ if (middleRatio !== middleRatio ^ 0) {
 }
 
 const factors = getFactors(maxRatio, middleRatio);
-const totalPrice = process.argv[3] || 90000;
+const totalPrice = parseInt(process.argv[3] || 90000, 10);
 const baseDir = process.cwd();
 
 module.exports = {
