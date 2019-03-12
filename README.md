@@ -4,7 +4,7 @@ give task csv [title, task, ratio] ratio(1-9, 0 will 0 price) and you get [title
 
 Install: `npm i -g taskpricer`  
 
-## how use
+## how to use
 
 `taskpricer <filename> <totalprice>`  
 After, you will get "result.csv". "filename" should be without extention.
@@ -23,8 +23,8 @@ Was file "mytasks.csv":
 
 Will be file "result.csv":
 
-| title                | Task          | Price |
-| -------------------- | ------------- | ----- |
-| I did something      | TASK_NUMBER_1 | 12000 |
-| I did more something | TASK_NUMBER_2 | 45000 |
-| I did something more | TASK_NUMBER_3 | 33000 |
+| title                | Task          | Price           |
+| -------------------- | ------------- | --------------- |
+| I did something      | TASK_NUMBER_1 | 12000 +- random |
+| I did more something | TASK_NUMBER_2 | 45000 +- random |
+| I did something more | TASK_NUMBER_3 | 33000 +- random |
